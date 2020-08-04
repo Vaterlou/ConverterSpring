@@ -45,26 +45,26 @@ public class RestBean {
         Document document = documentBuilder.parse(new ByteArrayInputStream(body.getBytes()));
 
         Node root = document.getDocumentElement();
-        NodeList books = root.getChildNodes();
+        NodeList cbdatas = root.getChildNodes();
 
         currencyRepo.deleteAll();
 
-        for (int x = 0, size = books.getLength(); x < size; x++) {
-            Node book = books.item(x);
+        for (int x = 0, size = cbdatas.getLength(); x < size; x++) {
+            Node cbdata = cbdatas.item(x);
 
-            if (book.getNodeType() != Node.TEXT_NODE) {
+            if (cbdata.getNodeType() != Node.TEXT_NODE) {
 
-                NodeList bookProps = book.getChildNodes();
+                NodeList cbdataProps = cbdata.getChildNodes();
 
                 ArrayList<String> data = new ArrayList<>();
-                data.add(book.getAttributes().getNamedItem("ID").getNodeValue());
+                data.add(cbdata.getAttributes().getNamedItem("ID").getNodeValue());
 
-                for(int j = 0; j < bookProps.getLength(); j++) {
+                for(int j = 0; j < cbdataProps.getLength(); j++) {
 
-                    Node bookProp = bookProps.item(j);
+                    Node cbdataProp = cbdataProps.item(j);
 
-                    if (bookProp.getNodeType() != Node.TEXT_NODE) {
-                        data.add(bookProp.getChildNodes().item(0).getTextContent());
+                    if (cbdataProp.getNodeType() != Node.TEXT_NODE) {
+                        data.add(cbdataProp.getChildNodes().item(0).getTextContent());
                     }
                 }
 
