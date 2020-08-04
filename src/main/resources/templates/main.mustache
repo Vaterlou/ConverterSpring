@@ -1,0 +1,35 @@
+<html>
+<title>Конвертер валют</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<body>
+<div>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<div>
+    <form method="post">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <select name="charCode" >
+        {{#currencies}}
+            <div>
+                <option value={{charCode}}>{{charCode}}</option>
+            </div>
+        {{/currencies}}
+    </select>
+    <select name="charCode" >
+        {{#currencies}}
+            <div>
+                <option value={{charCode}}>{{charCode}}</option>
+            </div>
+        {{/currencies}}
+    </select>
+    <input type="text" name="count" placeholder="Введите количество" />
+    <button type="submit">Конвертировать</button>
+    </form>
+    <a href="/history">ИСТОРИЯ КОНВЕРТАЦИЙ</a>
+
+</div>
+</body>
+</html>

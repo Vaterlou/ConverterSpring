@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>HISTORY</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<table border="1" cellpadding="10" align="center">
+<tr>
+<td>Исходная валюта</td><td>Целевая валюта</td><td>Исходная сумма</td><td>Получаемая сумма</td><td>Дата</td>
+</tr>
+{{#histories}}
+    <tr>
+        <td>{{from_currency}}</td><td>{{to_currency}}</td><td>{{from_value}}</td><td>{{to_value}}</td><td>{{date}}</td>
+    </tr>
+{{/histories}}
+</table>
+<a href="/main">Конвертер</a>
+</body>
+</html>
